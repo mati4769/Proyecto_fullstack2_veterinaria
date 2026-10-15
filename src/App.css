@@ -1,0 +1,414 @@
+/* estilos generales de la pagina */
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f2ede4;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* encabezado con el logo y el menu */
+.encabezado{
+    background-color: #123f4f;
+    color: #f7f3e9;
+    text-align: center;
+    padding: 25px 20px;
+    border-bottom: 4px solid #1f6f75;
+}
+
+/* tamaño y forma del logo */
+.logo{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+    float: left;
+}
+
+/* titulo Veterinaria San Marcos */
+.titulo-marca{
+    margin: 0;
+    font-size: 2em;
+}
+
+/* texto de abajo del titulo */
+.subtitulo-marca{
+    margin: 5px 0 0;
+    color: #c9e0de;
+}
+
+/* lista del menu de navegacion */
+.menu-lista{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 15px 0 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* links del menu */
+.enlace-menu{
+    text-decoration: none;
+    color: #123f4f;
+    background-color: #f2a154;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* efecto al pasar el mouse por el menu */
+.enlace-menu:hover{
+    background-color: #d9791f;
+}
+
+/* contenedor principal, centra el contenido */
+.contenido{
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 0 15px;
+}
+
+/* caja de cada seccion de la pagina */
+.seccion{
+    background-color: #ece5d6;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #1f6f75;
+}
+
+/* titulo de cada seccion */
+.titulo-seccion{
+    color: #123f4f;
+    margin-top: 0;
+}
+
+/* texto normal de cada seccion */
+.texto-seccion{
+    color: #4b4a42;
+}
+
+/* botones de "ver catalogo" */
+.boton{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #f2a154;
+    color: #123f4f;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.boton:hover{
+    background-color: #d9791f;
+}
+
+/* fila donde van las tarjetas/imagenes */
+.galeria{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* tarjeta de cada especialidad */
+.tarjeta{
+    background-color: #fdfaf3;
+    border: 1px solid #2f8f8a;
+    border-radius: 6px;
+    text-align: center;
+    width: 200px;
+    padding-bottom: 12px;
+}
+
+/* recuadro grande de imagen (seccion nosotros) */
+.espacio-imagen{
+    width: 100%;
+    height: 300px;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+}
+
+.espacio-imagen img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* recuadro chico de imagen (tarjetas especialidades) */
+.espacio-imagen2{
+    width: 100%;
+    height: 150px;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+}
+
+.espacio-imagen2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* titulo dentro de la tarjeta */
+.titulo-tarjeta{
+    margin: 10px 0 5px;
+    color: #123f4f;
+    font-size: 1.05em;
+}
+
+/* texto dentro de la tarjeta */
+.texto-tarjeta{
+    margin: 0 10px;
+    font-size: 0.9em;
+    color: #4b4a42;
+}
+
+/* fila con los numeros/datos de la clinica */
+.dato-clinica{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* cada cuadro de dato */
+.dato-clinica div{
+    background-color: #fdfaf3;
+    border: 1px solid #2f8f8a;
+    border-radius: 6px;
+    padding: 10px 15px;
+    min-width: 100px;
+}
+
+/* numero grande dentro del dato */
+.dato-clinica strong{
+    display: block;
+    font-size: 1.3em;
+    color: #123f4f;
+}
+
+/* caja que envuelve el video, solo para el borde y las esquinas */
+.video-caja{
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #2f8f8a;
+    background-color: #000;
+}
+
+/* el video, mantiene su propia proporcion */
+.mi-video{
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    display: block;
+}
+
+/* pie de pagina */
+.pie{
+    background-color: #123f4f;
+    text-align: center;
+    padding: 20px;
+    color: #f7f3e9;
+}
+
+/* lista de citas y de fichas clinicas */
+.lista-simple{
+    list-style: none;
+    padding: 0;
+}
+
+.lista-simple li{
+    background-color: #fdfaf3;
+    border: 1px solid #2f8f8a;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+/* boton chico, ej: "Cancelar" dentro de la lista de citas */
+.boton-mini{
+    background-color: #d9791f;
+    color: #f7f3e9;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 8px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* nombre de la clinica en el pie */
+.pie-marca{
+    margin: 4px 0;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* datos de contacto en el pie */
+.pie-texto{
+    margin: 4px 0;
+}
+
+/* linea de copyright, un poco mas tenue */
+.pie-copyright{
+    opacity: 0.75;
+    font-size: 0.85em;
+}
+/* ===== el root de React hace de contenedor para que el pie quede abajo ===== */
+#root{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== estilos de login (styleLogin.css) y registro (styleRegistro.css) ===== */
+
+/* centra el formulario de login en la pagina y crece para empujar el pie hacia abajo */
+.contenedor-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* centra el formulario de registro en la pagina */
+.contenedor-registro{
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* ancho de los formularios */
+.formulario-login,
+.formulario-registro{
+    width: 100%;
+    max-width: 420px;
+}
+
+/* caja donde va todo el formulario */
+.ficha-login,
+.ficha-registro{
+    background-color: #ece5d6;
+    border: none;
+    border-left: 4px solid #1f6f75;
+    border-top: 6px solid #f2a154;
+    border-radius: 6px;
+    padding: 25px 22px;
+}
+
+/* titulo del formulario */
+.titulo-formulario{
+    color: #123f4f;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 6px;
+}
+
+/* etiquetas de cada campo */
+.etiqueta-campo{
+    display: block;
+    color: #123f4f;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* estilo de los input y el select */
+.campo-input{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #2f8f8a;
+    border-radius: 4px;
+    background-color: #fdfaf3;
+    color: #123f4f;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* borde cuando se hace click en el input */
+.campo-input:focus{
+    outline: none;
+    border-color: #1f6f75;
+    box-shadow: 0 0 0 2px rgba(31, 111, 117, 0.25);
+}
+
+/* boton enviar / registrarse */
+.boton-formulario{
+    display: block;
+    width: 100%;
+    background-color: #f2a154;
+    color: #123f4f;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.boton-formulario:hover{
+    background-color: #d9791f;
+}
+
+/* espacio para los links de abajo del boton (10px en registro, 14px en login) */
+.enlace-secundario{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.formulario-login .enlace-secundario{
+    margin-top: 14px;
+}
+
+/* link para ir a registrarse */
+.enlace-login{
+    color: #123f4f;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+.enlace-login:hover{
+    color: #d9791f;
+}
+
+/* links para ir a login o al inicio */
+.enlace-registro{
+    color: #123f4f;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+.enlace-registro:hover{
+    color: #d9791f;
+}
+
+/* caja que contiene los radio de modalidad */
+.grupo-radio{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: #fdfaf3;
+    border: 1px solid #2f8f8a;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin-top: 4px;
+}
+
+/* texto al lado de cada radio button */
+.etiqueta-radio{
+    color: #123f4f;
+    font-weight: normal;
+    margin-right: 4px;
+}
