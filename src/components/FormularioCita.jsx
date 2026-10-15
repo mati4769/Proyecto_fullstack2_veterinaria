@@ -1,48 +1,60 @@
+import { useState } from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 import Campo from './Campo'
 import CampoSelect from './CampoSelect'
 
 import { opcionesMotivo } from '../data/opciones'
 
 function FormularioCita({ onAgregar }) {
+  const [dueno, setDueno] = useState("")
+  const [mascota, setMascota] = useState("")
+  const [motivo, setMotivo] = useState("")
+  const [fecha, setFecha] = useState("")
+  const [hora, setHora] = useState("")
 
-  const enviar = (event) => {
-    event.preventDefault();
-
-    const formulario = event.target;
+  const enviar = () => {
+    if (dueno === "" || mascota === "" || motivo === "" || fecha === "" || hora === "") {
+      alert("Debe completar todos los campos")
+      return
+    }
 
     const nuevaCita = {
-        dueno: formulario.elements.dueno.value,
-        mascota: formulario.elements.mascota.value,
-        motivo: formulario.elements.motivo.value,
-        fecha: formulario.elements.fecha.value,
-        hora: formulario.elements.hora.value
-    };
+      dueno: dueno,
+      mascota: mascota,
+      motivo: motivo,
+      fecha: fecha,
+      hora: hora
+    }
 
-    onAgregar(nuevaCita);
+    onAgregar(nuevaCita)
 
-    alert("Cita registrada. Te esperamos el " + nuevaCita.fecha + " a las " + nuevaCita.hora + ".");
-    formulario.reset();
+    alert("Cita registrada. Te esperamos el " + fecha + " a las " + hora + ".")
+    setDueno("")
+    setMascota("")
+    setMotivo("")
+    setFecha("")
+    setHora("")
   }
 
   return (
-    <form id="formCita" onSubmit={enviar}>
-      <Campo etiqueta="Nombre del dueño :" nombre="dueno" />
+    <Form>
+      <Campo id="formDueno" etiqueta="Nombre del dueño :" valor={dueno} onCambio={setDueno} />
 
-      <Campo etiqueta="Nombre de la mascota :" nombre="mascota" />
+      <Campo id="formMascota" etiqueta="Nombre de la mascota :" valor={mascota} onCambio={setMascota} />
 
-      <CampoSelect
-        etiqueta="Motivo :"
-        nombre="motivo"
-        textoInicial="-- Seleccione --"
-        opciones={opcionesMotivo}
-      />
+      <CampoSelect id="formMotivo" etiqueta="Motivo :" textoInicial="-- Seleccione --"
+        opciones={opcionesMotivo} valor={motivo} onCambio={setMotivo} />
 
-      <Campo etiqueta="Fecha :" tipo="date" nombre="fecha" />
+      <Campo id="formFecha" etiqueta="Fecha :" tipo="date" valor={fecha} onCambio={setFecha} />
 
-      <Campo etiqueta="Hora :" tipo="time" nombre="hora" />
+      <Campo id="formHora" etiqueta="Hora :" tipo="time" valor={hora} onCambio={setHora} />
 
-      <button type="submit" className="boton">Solicitar cita</button>
-    </form>
+      <Button className="boton" type="button" onClick={enviar}>
+        Solicitar cita
+      </Button>
+    </Form>
   )
 }
 

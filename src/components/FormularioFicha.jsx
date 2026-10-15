@@ -1,40 +1,58 @@
+import { useState } from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 import Campo from './Campo'
 
 function FormularioFicha({ onAgregar }) {
+  const [mascota, setMascota] = useState("")
+  const [diagnostico, setDiagnostico] = useState("")
+  const [medicamento, setMedicamento] = useState("")
+  const [vacuna, setVacuna] = useState("")
+  const [fecha, setFecha] = useState("")
 
-  const enviar = (event) => {
-    event.preventDefault();
-
-    const formulario = event.target;
+  const enviar = () => {
+    // medicamento y vacuna son opcionales
+    if (mascota === "" || diagnostico === "" || fecha === "") {
+      alert("Debe completar mascota, diagnóstico y fecha")
+      return
+    }
 
     const nuevaFicha = {
-        mascota: formulario.elements.mascota.value,
-        diagnostico: formulario.elements.diagnostico.value,
-        medicamento: formulario.elements.medicamento.value,
-        vacuna: formulario.elements.vacuna.value,
-        fecha: formulario.elements.fecha.value
-    };
+      mascota: mascota,
+      diagnostico: diagnostico,
+      medicamento: medicamento,
+      vacuna: vacuna,
+      fecha: fecha
+    }
 
-    onAgregar(nuevaFicha);
+    onAgregar(nuevaFicha)
 
-    alert("Atención guardada en la ficha digital de " + nuevaFicha.mascota + ".");
-    formulario.reset();
+    alert("Atención guardada en la ficha digital de " + mascota + ".")
+    setMascota("")
+    setDiagnostico("")
+    setMedicamento("")
+    setVacuna("")
+    setFecha("")
   }
 
   return (
-    <form id="formFicha" onSubmit={enviar}>
-      <Campo etiqueta="Mascota :" nombre="mascota" />
+    <Form>
+      <Campo id="formMascota" etiqueta="Mascota :" valor={mascota} onCambio={setMascota} />
 
-      <Campo etiqueta="Diagnóstico :" nombre="diagnostico" />
+      <Campo id="formDiagnostico" etiqueta="Diagnóstico :" valor={diagnostico} onCambio={setDiagnostico} />
 
-      <Campo etiqueta="Medicamento :" nombre="medicamento" requerido={false} />
+      <Campo id="formMedicamento" etiqueta="Medicamento :" valor={medicamento} onCambio={setMedicamento} />
 
-      <Campo etiqueta="Vacuna aplicada (opcional) :" nombre="vacuna" placeholder="Ej: Antirrábica" requerido={false} />
+      <Campo id="formVacuna" etiqueta="Vacuna aplicada (opcional) :" placeholder="Ej: Antirrábica"
+        valor={vacuna} onCambio={setVacuna} />
 
-      <Campo etiqueta="Fecha :" tipo="date" nombre="fecha" />
+      <Campo id="formFecha" etiqueta="Fecha :" tipo="date" valor={fecha} onCambio={setFecha} />
 
-      <button type="submit" className="boton">Guardar atención</button>
-    </form>
+      <Button className="boton" type="button" onClick={enviar}>
+        Guardar atención
+      </Button>
+    </Form>
   )
 }
 

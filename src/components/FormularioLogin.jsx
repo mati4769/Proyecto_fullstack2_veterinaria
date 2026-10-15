@@ -1,61 +1,50 @@
+import { useState } from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 import Campo from './Campo'
 
+import { regexCorreo, mensajeCorreo, regexContra, mensajeContra } from '../data/validaciones'
+
 function FormularioLogin() {
+  const [correo, setCorreo] = useState("")
+  const [contra, setContra] = useState("")
 
-  const validar = (event) => {
-    event.preventDefault();
-
-    const formulario = event.target;
-    const correo = formulario.elements.correo;
-    const contra = formulario.elements.contrasena;
-
+  const enviar = () => {
     // 1 correo
-    if(!/^[\w.+-]+@(gmail|outlook|duocuc)\.(com|cl)$/i.test(correo.value)){
-        alert("El correo debe ser de dominio @gmail, @outlook o @duocuc, junto al .com");
-        correo.focus();
-        return;
+    if (!regexCorreo.test(correo)) {
+      alert(mensajeCorreo)
+      return
     }
 
     // 2 contra
-    if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/.test(contra.value)){
-        alert("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número");
-        contra.focus();
-        return;
+    if (!regexContra.test(contra)) {
+      alert(mensajeContra)
+      return
     }
 
     // si todas las validaciones pasan
-    alert("formulario enviado correctamente");
-    formulario.reset();
+    alert("formulario enviado correctamente")
+    setCorreo("")
+    setContra("")
   }
 
   return (
-    <form id="acceso" className="formulario-login" onSubmit={validar}>
-      <fieldset className="ficha-login">
-        <legend className="titulo-formulario">Inicio de sesión</legend>
+    <Form>
+      <Campo id="formCorreo" etiqueta="Correo electronico :" tipo="email"
+        placeholder="usuario@gmail.com" valor={correo} onCambio={setCorreo} />
 
-        <Campo
-          etiqueta="Correo electronico :"
-          tipo="email"
-          nombre="correo"
-          placeholder="usuario@gmail.com"
-        />
+      <Campo id="formContra" etiqueta="Contraseña :" tipo="password"
+        placeholder="Ingrese su contraseña" valor={contra} onCambio={setContra} />
 
-        <Campo
-          etiqueta="Contraseña :"
-          tipo="password"
-          nombre="contrasena"
-          placeholder="Ingrese su contraseña"
-          patron="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}"
-          titulo="Debe tener almenos 8 caracteres, una mayúscula, una minúscula y un número"
-        />
-
-        <button type="submit" className="boton-formulario">ENVIAR</button>
-      </fieldset>
+      <Button className="boton-formulario" type="button" onClick={enviar}>
+        ENVIAR
+      </Button>
 
       <p className="enlace-secundario">
         <a href="/registro" className="enlace-login">¿No tienes cuenta? Regístrate</a>
       </p>
-    </form>
+    </Form>
   )
 }
 

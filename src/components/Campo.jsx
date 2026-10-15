@@ -1,19 +1,17 @@
-function Campo({ etiqueta, tipo = "text", nombre, placeholder, patron, titulo, requerido = true }) {
+import Form from 'react-bootstrap/Form'
+
+function Campo({ id, etiqueta, tipo = "text", placeholder, valor, onCambio }) {
   return (
-    <>
-      <label htmlFor={nombre} className="etiqueta-campo">{etiqueta}</label>
-      <input
-        type={tipo}
-        name={nombre}
-        id={nombre}
+    <Form.Group className="grupo-campo" controlId={id}>
+      <Form.Label className="etiqueta-campo">{etiqueta}</Form.Label>
+      <Form.Control
         className="campo-input"
+        type={tipo}
         placeholder={placeholder}
-        pattern={patron}
-        title={titulo}
-        required={requerido}
+        value={valor}
+        onChange={(e) => onCambio(e.target.value)}
       />
-      <br /><br />
-    </>
+    </Form.Group>
   )
 }
 
