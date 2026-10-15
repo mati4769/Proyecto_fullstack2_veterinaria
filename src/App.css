@@ -16,6 +16,7 @@ body{
     text-align: center;
     padding: 25px 20px;
     border-bottom: 4px solid #1f6f75;
+    margin-bottom: 20px;
 }
 
 /* tamaño y forma del logo */
@@ -77,7 +78,10 @@ body{
     background-color: #ece5d6;
     padding: 20px;
     border-radius: 6px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
+    width: calc(100% - 30px);
+    max-width: 900px;
+    box-sizing: border-box;
     border-left: 4px solid #1f6f75;
 }
 
@@ -218,6 +222,7 @@ body{
     text-align: center;
     padding: 20px;
     color: #f7f3e9;
+    margin-top: auto;
 }
 
 /* lista de citas y de fichas clinicas */
@@ -269,50 +274,20 @@ body{
     flex-direction: column;
 }
 
-/* ===== estilos de login (styleLogin.css) y registro (styleRegistro.css) ===== */
+/* ===== formularios de login y registro (react-bootstrap) ===== */
 
-/* centra el formulario de login en la pagina y crece para empujar el pie hacia abajo */
-.contenedor-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    margin: 40px auto;
-    padding: 0 15px;
-}
-
-/* centra el formulario de registro en la pagina */
-.contenedor-registro{
-    display: flex;
-    justify-content: center;
-    margin: 40px auto;
-    padding: 0 15px;
-}
-
-/* ancho de los formularios */
-.formulario-login,
-.formulario-registro{
-    width: 100%;
-    max-width: 420px;
-}
-
-/* caja donde va todo el formulario */
-.ficha-login,
-.ficha-registro{
-    background-color: #ece5d6;
-    border: none;
-    border-left: 4px solid #1f6f75;
+/* las secciones de login y registro son mas angostas */
+#login,
+#registro{
+    max-width: 460px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     border-top: 6px solid #f2a154;
-    border-radius: 6px;
-    padding: 25px 22px;
 }
 
-/* titulo del formulario */
-.titulo-formulario{
-    color: #123f4f;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 0 6px;
+/* espacio entre cada campo */
+.grupo-campo{
+    margin-bottom: 16px;
 }
 
 /* etiquetas de cada campo */
@@ -323,7 +298,7 @@ body{
     margin-bottom: 6px;
 }
 
-/* estilo de los input y el select */
+/* estilo de los input y los select */
 .campo-input{
     width: 100%;
     padding: 10px 12px;
@@ -362,34 +337,21 @@ body{
     background-color: #d9791f;
 }
 
-/* espacio para los links de abajo del boton (10px en registro, 14px en login) */
+/* espacio para los links de abajo del boton */
 .enlace-secundario{
     text-align: center;
-    margin-top: 10px;
-}
-
-.formulario-login .enlace-secundario{
     margin-top: 14px;
 }
 
-/* link para ir a registrarse */
-.enlace-login{
-    color: #123f4f;
-    font-size: 0.9em;
-    text-decoration: underline;
-}
-
-.enlace-login:hover{
-    color: #d9791f;
-}
-
-/* links para ir a login o al inicio */
+/* links para ir a registrarse, login o al inicio */
+.enlace-login,
 .enlace-registro{
     color: #123f4f;
     font-size: 0.9em;
     text-decoration: underline;
 }
 
+.enlace-login:hover,
 .enlace-registro:hover{
     color: #d9791f;
 }
@@ -404,11 +366,5 @@ body{
     border-radius: 4px;
     padding: 10px 12px;
     margin-top: 4px;
-}
-
-/* texto al lado de cada radio button */
-.etiqueta-radio{
     color: #123f4f;
-    font-weight: normal;
-    margin-right: 4px;
 }
