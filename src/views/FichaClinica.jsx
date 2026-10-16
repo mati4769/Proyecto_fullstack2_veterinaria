@@ -5,6 +5,7 @@ import Seccion from '../components/Seccion';
 import FormularioFicha from '../components/FormularioFicha';
 import ListaFichas from '../components/ListaFichas';
 import ReporteFicha from '../components/ReporteFicha';
+import BotonCerrarSesion from '../components/BotonCerrarSesion';
 
 import { fichasIniciales } from '../data/fichas';
 import { itemsMenu } from '../data/navegacion';
@@ -31,6 +32,8 @@ function FichaClinica() {
 
       <Seccion id="reporte" titulo={"Reporte"}>
         <ReporteFicha fichas={fichas} />
+
+        <BotonCerrarSesion />
       </Seccion>
 
     </Pagina>

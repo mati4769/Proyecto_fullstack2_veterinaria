@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import Campo from './Campo'
@@ -39,7 +38,7 @@ function FormularioCita({ onAgregar }) {
   }
 
   return (
-    <Form>
+    <div>
       <Campo id="formDueno" etiqueta="Nombre del dueño :" valor={dueno} onCambio={setDueno} />
 
       <Campo id="formMascota" etiqueta="Nombre de la mascota :" valor={mascota} onCambio={setMascota} />
@@ -54,7 +53,7 @@ function FormularioCita({ onAgregar }) {
       <Button className="boton" type="button" onClick={enviar}>
         Solicitar cita
       </Button>
-    </Form>
+    </div>
   )
 }
 

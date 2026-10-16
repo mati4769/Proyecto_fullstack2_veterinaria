@@ -103,7 +103,7 @@ function FormularioRegistro() {
   }
 
   return (
-    <Form>
+    <div>
       <Campo id="formNombre" etiqueta="Nombre :"
         placeholder="Ingrese su nombre" valor={nombre} onCambio={setNombre} />
 
@@ -161,7 +161,7 @@ function FormularioRegistro() {
       <p className="enlace-secundario">
         <a href="/" className="enlace-registro">Volver a la página principal</a>
       </p>
-    </Form>
+    </div>
   )
 }
 

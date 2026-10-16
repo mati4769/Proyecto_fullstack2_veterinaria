@@ -5,6 +5,7 @@ import Citas from './views/Citas'
 import FichaClinica from './views/FichaClinica'
 import Login from './views/Login'
 import Registro from './views/Registro'
+import RutaPrivada from './components/RutaPrivada'
 
 function App() {
   return (
@@ -13,7 +14,12 @@ function App() {
 
       <Route path='/citas' element={<Citas />} />
 
-      <Route path='/ficha-clinica' element={<FichaClinica />} />
+      {/* ruta privada: solo entra si inicio sesion */}
+      <Route path='/ficha-clinica' element={
+        <RutaPrivada>
+          <FichaClinica />
+        </RutaPrivada>
+      } />
 
       <Route path='/login' element={<Login />} />
 

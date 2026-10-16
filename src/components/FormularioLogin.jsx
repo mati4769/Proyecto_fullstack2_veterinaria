@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 import Campo from './Campo'
 
 import { regexCorreo, mensajeCorreo, regexContra, mensajeContra } from '../data/validaciones'
+import { usuarioAdmin } from '../data/usuarios'
 
 function FormularioLogin() {
   const [correo, setCorreo] = useState("")
@@ -23,14 +23,20 @@ function FormularioLogin() {
       return
     }
 
-    // si todas las validaciones pasan
-    alert("formulario enviado correctamente")
-    setCorreo("")
-    setContra("")
+    // 3 credenciales: deben ser iguales a las del usuario guardado
+    if (correo !== usuarioAdmin.correo || contra !== usuarioAdmin.contra) {
+      alert("Correo o contraseña incorrectos")
+      return
+    }
+
+    // si todo esta bien, se guarda la sesion y se entra a la ficha clinica
+    localStorage.setItem("sesion", correo)
+    alert("Bienvenido, inicio de sesión correcto")
+    window.location.href = "/ficha-clinica"
   }
 
   return (
-    <Form>
+    <div>
       <Campo id="formCorreo" etiqueta="Correo electronico :" tipo="email"
         placeholder="usuario@gmail.com" valor={correo} onCambio={setCorreo} />
 
@@ -44,7 +50,7 @@ function FormularioLogin() {
       <p className="enlace-secundario">
         <a href="/registro" className="enlace-login">¿No tienes cuenta? Regístrate</a>
       </p>
-    </Form>
+    </div>
   )
 }
 

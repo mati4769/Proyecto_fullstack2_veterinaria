@@ -10,6 +10,7 @@ function Login() {
     <Pagina itemsMenu={itemsMenu}>
 
       <Seccion id="login" titulo={"Inicio de sesión"}>
+        <p className="texto-seccion">Debes iniciar sesión para usar la ficha clínica.</p>
         <FormularioLogin />
       </Seccion>
 
