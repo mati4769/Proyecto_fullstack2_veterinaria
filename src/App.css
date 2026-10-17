@@ -368,3 +368,64 @@ body{
     margin-top: 4px;
     color: #123f4f;
 }
+
+/* ===== estilos de las paginas nuevas (productos, carrito, admin) ===== */
+
+/* precio dentro de la tarjeta de producto */
+.precio-tarjeta{
+    font-weight: bold;
+    color: #123f4f;
+}
+
+/* link "ver detalle" de la tarjeta */
+.enlace-detalle{
+    color: #123f4f;
+    font-size: 0.9em;
+}
+
+/* separa los botones chicos de la tarjeta */
+.tarjeta .boton-mini{
+    margin: 5px;
+}
+
+/* ===== responsivo: celulares (pantallas de 600px o menos) ===== */
+@media (max-width: 600px){
+
+    /* 1. encabezado: el logo deja de ir a la izquierda y queda centrado */
+    .logo{
+        float: none;
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    .titulo-marca{
+        font-size: 1.5em;
+    }
+
+    /* 2. menu: los botones quedan uno debajo de otro */
+    .menu-lista{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* 3. tarjetas de servicios y productos: ocupan todo el ancho */
+    .tarjeta{
+        width: 100%;
+    }
+
+    /* 4. fotos del equipo: menos altas */
+    .espacio-imagen{
+        height: 180px;
+    }
+
+    /* 5. datos de la clinica: dos por fila */
+    .dato-clinica div{
+        min-width: 40%;
+    }
+
+    /* 6. secciones: menos espacio a los lados */
+    .seccion{
+        width: calc(100% - 16px);
+        padding: 15px;
+    }
+}

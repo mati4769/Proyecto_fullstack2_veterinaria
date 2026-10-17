@@ -29,10 +29,10 @@ function FormularioLogin() {
       return
     }
 
-    // si todo esta bien, se guarda la sesion y se entra a la ficha clinica
+    // si todo esta bien, se guarda la sesion y se entra al panel de control
     localStorage.setItem("sesion", correo)
     alert("Bienvenido, inicio de sesión correcto")
-    window.location.href = "/ficha-clinica"
+    window.location.href = "/admin"
   }
 
   return (

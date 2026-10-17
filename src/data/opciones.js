@@ -15,3 +15,9 @@ export const opcionesMotivo = [
         { value: "Desparasitación", label: "Desparasitación" },
         { value: "Control de peso", label: "Control de peso" }
       ]
+
+//opciones del select de categoria (panel admin y filtro de productos)
+export const opcionesCategoria = [
+        { value: "Atención", label: "Atención" },
+        { value: "Prevención", label: "Prevención" }
+      ]

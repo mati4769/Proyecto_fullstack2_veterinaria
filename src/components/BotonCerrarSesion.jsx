@@ -1,5 +1,3 @@
-import Button from 'react-bootstrap/Button'
-
 function BotonCerrarSesion() {
   const cerrar = () => {
     localStorage.removeItem("sesion")
@@ -8,9 +6,9 @@ function BotonCerrarSesion() {
   }
 
   return (
-    <Button className="boton" type="button" onClick={cerrar}>
+    <button className="boton" type="button" onClick={cerrar}>
       Cerrar sesión
-    </Button>
+    </button>
   )
 }
 

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Header({logo, titulo, subtitulo, itemsMenu}) {
   return (
     <>
@@ -10,7 +12,12 @@ function Header({logo, titulo, subtitulo, itemsMenu}) {
                 <ul className="menu-lista">
                     {
                         itemsMenu.map((item) => (
-                            <li key={item.href}><a href={item.href} className="enlace-menu">{item.label}</a></li>
+                            <li key={item.href}>
+                                {/* los links con ancla van a una seccion de la misma pagina */}
+                                {item.ancla
+                                    ? <a href={item.href} className="enlace-menu">{item.label}</a>
+                                    : <Link to={item.href} className="enlace-menu">{item.label}</Link>}
+                            </li>
                         ))
                     }
                 </ul>
