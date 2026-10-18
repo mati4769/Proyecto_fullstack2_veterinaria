@@ -1,0 +1,108 @@
+VETERINARIA SAN MARCOS - GUIA RAPIDA
+====================================
+
+1. LEVANTAR EL PROYECTO
+-----------------------
+npm install        (solo la primera vez o si no esta la carpeta node_modules)
+npm run dev        (levanta la pagina)
+Abrir en el navegador: http://localhost:5173
+
+npx vitest         (correr las pruebas)
+
+
+2. INICIO DE SESION (credenciales estaticas, src/data/usuarios.js)
+------------------------------------------------------------------
+Correo:      admin@duocuc.cl
+Contraseña:  Admin1234
+
+Al entrar te manda al Panel admin.
+Para cerrar sesion: boton "Cerrar sesión" (Panel admin, Mi perfil o Ficha clínica).
+
+
+3. RUTAS
+--------
+/                Inicio
+/productos       Catalogo (filtro, favoritos, agregar al carrito)
+/producto/1      Detalle de un producto (cambiar el numero)
+/carrito         Carrito y resumen de pago
+/citas           Solicitar y cancelar citas
+/login           Inicio de sesion
+/registro        Registro de usuario
+/admin           Panel admin        (PRIVADA)
+/perfil          Mi perfil          (PRIVADA)
+/ficha-clinica   Ficha clinica      (PRIVADA)
+/cualquiercosa   Error 404
+
+Para mostrar la ruta privada: cerrar sesion y entrar a /admin -> te manda a /login.
+
+
+4. DATOS DE PRUEBA PARA COPIAR Y PEGAR
+--------------------------------------
+REGISTRO (datos correctos)
+  Nombre:                Matias
+  Apellido:              Acevedo
+  Correo:                matias@gmail.com
+  Telefono:              +56912345678
+  Fecha de nacimiento:   01-01-2000
+  Nombre de su mascota:  Toby
+  Especie:               Perro
+  Servicio de interes:   Consulta general
+  Modalidad:             Presencial
+  Contraseña:            Clave1234
+  Confirmar contraseña:  Clave1234
+
+REGISTRO (para mostrar errores)
+  Nombre "Matias1"            -> solo letras
+  Correo "matias@yahoo.com"   -> dominio no permitido
+  Telefono "abc123"           -> solo numeros
+  Fecha 01-01-2015            -> menor de 18 años
+  Mascota "Toby1"             -> solo letras
+  Contraseña "clave"          -> minimo 8, mayuscula, minuscula y numero
+  Confirmar distinta          -> las contraseñas no coinciden
+
+PANEL ADMIN (nuevo producto)
+  Nombre:       Baño y corte
+  Descripcion:  Peluqueria para perros y gatos
+  Precio:       12000
+  Categoria:    Atención
+  -> aparece en /productos con la imagen generica (logo)
+
+CITA
+  Dueño:    Marcela Rojas
+  Mascota:  Luna
+  Motivo:   Vacunación
+  Fecha:    cualquier fecha
+  Hora:     10:00
+
+FICHA CLINICA
+  Mascota:      Luna
+  Diagnostico:  Control anual
+  Medicamento:  Ninguno
+  Vacuna:       Antirrábica
+  Fecha:        fecha de hace 11 meses -> muestra el aviso "⚠ Vacuna vence el ..."
+
+
+5. REGLAS DE VALIDACION (src/data/validaciones.js)
+--------------------------------------------------
+Correo:      dominio @gmail, @outlook o @duocuc y terminar en .com o .cl
+Contraseña:  minimo 8 caracteres, una mayuscula, una minuscula y un numero
+Nombre, apellido y mascota: solo letras
+Telefono:    solo numeros, 8 a 12 digitos, puede empezar con +
+Edad:        mayor de 18 años
+
+
+6. ORDEN PARA LA DEMOSTRACION
+-----------------------------
+1. Inicio -> mostrar la pagina y achicar la ventana (responsivo)
+2. Productos -> filtrar, marcar favorito, agregar al carrito, ver detalle
+3. Carrito -> quitar un producto y pagar
+4. Entrar a /admin sin sesion -> redirige al login
+5. Login con admin@duocuc.cl / Admin1234
+6. Panel admin -> agregar producto -> ir a Productos (con el MENU, no recargar)
+7. Citas y Ficha clinica -> agregar una de cada una
+8. Registro -> mostrar un error y despues un registro correcto
+9. /cualquiercosa -> pagina 404
+10. Cerrar sesion
+
+IMPORTANTE: navegar con los botones del menu. Si recargas la pagina (F5) se
+pierden los productos nuevos y el carrito, porque se guardan en memoria (useState).

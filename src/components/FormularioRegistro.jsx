@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Campo from './Campo'
 import CampoSelect from './CampoSelect'
 
-import { opcionesServicio } from '../data/opciones'
+import { opcionesServicio, opcionesEspecie } from '../data/opciones'
 import { regexCorreo, mensajeCorreo, regexContra, mensajeContra, regexSoloLetras } from '../data/validaciones'
 
 function FormularioRegistro() {
@@ -14,6 +14,8 @@ function FormularioRegistro() {
   const [correo, setCorreo] = useState("")
   const [fono, setFono] = useState("")
   const [fenac, setFenac] = useState("")
+  const [mascota, setMascota] = useState("")
+  const [especie, setEspecie] = useState("")
   const [especialidad, setEspecialidad] = useState("")
   const [modalidad, setModalidad] = useState("")
   const [contra, setContra] = useState("")
@@ -65,25 +67,37 @@ function FormularioRegistro() {
       return
     }
 
-    // 7 especialidad: obligatoria
+    // 7 nombre de la mascota: obligatorio, solo letras
+    if (!regexSoloLetras.test(mascota)) {
+      alert("El nombre de la mascota debe contener solo letras")
+      return
+    }
+
+    // 8 especie de la mascota: obligatoria
+    if (especie === "") {
+      alert("Debe seleccionar la especie de su mascota")
+      return
+    }
+
+    // 9 especialidad: obligatoria
     if (especialidad === "") {
       alert("Debe seleccionar un servicio de interes")
       return
     }
 
-    // 8 modalidad de atencion: obligatorio elegir una opcion
+    // 10 modalidad de atencion: obligatorio elegir una opcion
     if (modalidad === "") {
       alert("Debe seleccionar una modalidad de atencion")
       return
     }
 
-    // 9 contraseña: minimo 8 caracteres, mayuscula, minuscula y numero
+    // 11 contraseña: minimo 8 caracteres, mayuscula, minuscula y numero
     if (!regexContra.test(contra)) {
       alert(mensajeContra)
       return
     }
 
-    // 10 confirmar contraseña: debe coincidir
+    // 12 confirmar contraseña: debe coincidir
     if (confirmar !== contra) {
       alert("Las contraseñas no coinciden")
       return
@@ -96,6 +110,8 @@ function FormularioRegistro() {
     setCorreo("")
     setFono("")
     setFenac("")
+    setMascota("")
+    setEspecie("")
     setEspecialidad("")
     setModalidad("")
     setContra("")
@@ -118,6 +134,13 @@ function FormularioRegistro() {
 
       <Campo id="formFenac" etiqueta="Fecha de nacimiento :" tipo="date"
         valor={fenac} onCambio={setFenac} />
+
+      <Campo id="formMascota" etiqueta="Nombre de su mascota :"
+        placeholder="Ej: Toby" valor={mascota} onCambio={setMascota} />
+
+      <CampoSelect id="formEspecie" etiqueta="Especie de su mascota :"
+        textoInicial="-- SELECCIONE UNA OPCION --" opciones={opcionesEspecie}
+        valor={especie} onCambio={setEspecie} />
 
       <CampoSelect id="formEspecialidad" etiqueta="Servicio de interes :"
         textoInicial="-- SELECCIONE UNA OPCION --" opciones={opcionesServicio}
