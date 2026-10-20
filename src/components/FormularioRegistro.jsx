@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 import Campo from './Campo'
 import CampoSelect from './CampoSelect'
@@ -179,10 +180,10 @@ function FormularioRegistro() {
       </Button>
 
       <p className="enlace-secundario">
-        <a href="/login" className="enlace-registro">¿Ya tienes cuenta? Inicia sesión</a>
+        <Link to="/login" className="enlace-registro">¿Ya tienes cuenta? Inicia sesión</Link>
       </p>
       <p className="enlace-secundario">
-        <a href="/" className="enlace-registro">Volver a la página principal</a>
+        <Link to="/" className="enlace-registro">Volver a la página principal</Link>
       </p>
     </div>
   )

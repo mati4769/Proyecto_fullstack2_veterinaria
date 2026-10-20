@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom'
+
 function BotonCerrarSesion() {
+  const navigate = useNavigate()
   const cerrar = () => {
     localStorage.removeItem("sesion")
     alert("Sesión cerrada")
-    window.location.href = "/login"
+    navigate("/login")
   }
 
   return (

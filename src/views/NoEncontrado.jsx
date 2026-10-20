@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Pagina from '../components/Pagina';
 import Seccion from '../components/Seccion';
 
@@ -10,7 +12,7 @@ function NoEncontrado() {
 
       <Seccion id="error" titulo={"Error 404"}>
         <p className="texto-seccion">La página que buscas no existe.</p>
-        <a href="/" className="boton">Volver al inicio</a>
+        <Link to="/" className="boton">Volver al inicio</Link>
       </Seccion>
 
     </Pagina>

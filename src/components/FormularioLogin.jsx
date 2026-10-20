@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Campo from './Campo'
 
@@ -7,6 +8,7 @@ import { regexCorreo, mensajeCorreo, regexContra, mensajeContra } from '../data/
 import { usuarioAdmin } from '../data/usuarios'
 
 function FormularioLogin() {
+  const navigate = useNavigate()
   const [correo, setCorreo] = useState("")
   const [contra, setContra] = useState("")
 
@@ -32,7 +34,7 @@ function FormularioLogin() {
     // si todo esta bien, se guarda la sesion y se entra al panel de control
     localStorage.setItem("sesion", correo)
     alert("Bienvenido, inicio de sesión correcto")
-    window.location.href = "/admin"
+    navigate("/admin")
   }
 
   return (
@@ -48,7 +50,7 @@ function FormularioLogin() {
       </Button>
 
       <p className="enlace-secundario">
-        <a href="/registro" className="enlace-login">¿No tienes cuenta? Regístrate</a>
+        <Link to="/registro" className="enlace-login">¿No tienes cuenta? Regístrate</Link>
       </p>
     </div>
   )
