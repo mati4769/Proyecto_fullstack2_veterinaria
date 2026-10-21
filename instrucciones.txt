@@ -7,7 +7,8 @@ npm install        (solo la primera vez o si no esta la carpeta node_modules)
 npm run dev        (levanta la pagina)
 Abrir en el navegador: http://localhost:5173
 
-npx vitest         (correr las pruebas)
+npx vitest run     (correr las pruebas una vez)
+                   Resultado esperado: Tests  4 failed | 6 passed (10)
 
 
 2. INICIO DE SESION (credenciales estaticas, src/data/usuarios.js)
@@ -60,12 +61,19 @@ REGISTRO (para mostrar errores)
   Contraseña "clave"          -> minimo 8, mayuscula, minuscula y numero
   Confirmar distinta          -> las contraseñas no coinciden
 
-PANEL ADMIN (nuevo producto)
-  Nombre:       Baño y corte
-  Descripcion:  Peluqueria para perros y gatos
-  Precio:       12000
-  Categoria:    Atención
-  -> aparece en /productos con la imagen generica (logo)
+PANEL ADMIN - CRUD DE PRODUCTOS
+  Agregar:
+    Nombre:       Baño y corte
+    Descripcion:  Peluqueria para perros y gatos
+    Precio:       12000
+    Categoria:    Atención
+    -> aparece en /productos con la imagen generica (logo)
+  Modificar:
+    Boton "Editar" del producto -> se abre "Modificar producto" con sus datos
+    Cambiar el precio a 15000 -> "Guardar cambios"
+    ("Cancelar" vuelve a "Agregar producto" sin cambiar nada)
+  Eliminar:
+    Boton "Eliminar" del producto -> sale el mensaje y desaparece del catalogo
 
 CITA
   Dueño:    Marcela Rojas
@@ -89,20 +97,33 @@ Contraseña:  minimo 8 caracteres, una mayuscula, una minuscula y un numero
 Nombre, apellido y mascota: solo letras
 Telefono:    solo numeros, 8 a 12 digitos, puede empezar con +
 Edad:        mayor de 18 años
+Producto:    nombre y descripcion obligatorios, precio mayor a 0, categoria obligatoria
 
 
-6. ORDEN PARA LA DEMOSTRACION
+6. PRUEBAS (plan_de_pruebas.md)
+-------------------------------
+10 pruebas con Vitest, patron AAA (Arrange, Act, Assert). 6 pasan y 4 fallan.
+Las 4 que fallan encontraron defectos reales de la pagina:
+  - Registro acepta un nombre con solo espacios ("   ")
+  - El favorito se pierde al filtrar los productos
+  - Se puede pedir una cita con una fecha que ya paso
+  - El Panel admin acepta una descripcion con solo espacios
+
+
+7. ORDEN PARA LA DEMOSTRACION
 -----------------------------
 1. Inicio -> mostrar la pagina y achicar la ventana (responsivo)
 2. Productos -> filtrar, marcar favorito, agregar al carrito, ver detalle
 3. Carrito -> quitar un producto y pagar
 4. Entrar a /admin sin sesion -> redirige al login
 5. Login con admin@duocuc.cl / Admin1234
-6. Panel admin -> agregar producto -> ir a Productos (con el MENU, no recargar)
+6. Panel admin -> agregar, modificar y eliminar un producto -> ir a Productos (con el MENU)
 7. Citas y Ficha clinica -> agregar una de cada una
 8. Registro -> mostrar un error y despues un registro correcto
 9. /cualquiercosa -> pagina 404
 10. Cerrar sesion
+11. Terminal -> npx vitest run y explicar por que fallan 4 pruebas
 
-IMPORTANTE: navegar con los botones del menu. Si recargas la pagina (F5) se
-pierden los productos nuevos y el carrito, porque se guardan en memoria (useState).
+IMPORTANTE: navegar con los botones del menu. Si recargas la pagina (F5) o
+escribes una ruta a mano en la barra del navegador, se pierden los productos
+nuevos y el carrito, porque se guardan en memoria (useState).
