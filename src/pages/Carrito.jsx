@@ -1,6 +1,6 @@
-import Pagina from '../components/Pagina';
-import Seccion from '../components/Seccion';
-import ListaProductos from '../components/ListaProductos';
+import Pagina from '../components/organisms/Pagina';
+import Seccion from '../components/molecules/Seccion';
+import ListaProductos from '../components/molecules/ListaProductos';
 
 import { itemsMenu } from '../data/navegacion';
 

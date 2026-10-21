@@ -1,7 +1,7 @@
-import Pagina from '../components/Pagina';
-import Seccion from '../components/Seccion';
-import DatosPerfil from '../components/DatosPerfil';
-import BotonCerrarSesion from '../components/BotonCerrarSesion';
+import Pagina from '../components/organisms/Pagina';
+import Seccion from '../components/molecules/Seccion';
+import DatosPerfil from '../components/molecules/DatosPerfil';
+import BotonCerrarSesion from '../components/atoms/BotonCerrarSesion';
 
 import { usuarioAdmin } from '../data/usuarios';
 import { itemsMenu } from '../data/navegacion';

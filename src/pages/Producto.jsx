@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 
-import Pagina from '../components/Pagina';
-import Seccion from '../components/Seccion';
-import GaleriaProductos from '../components/GaleriaProductos';
+import Pagina from '../components/organisms/Pagina';
+import Seccion from '../components/molecules/Seccion';
+import GaleriaProductos from '../components/organisms/GaleriaProductos';
 
 import { itemsMenu } from '../data/navegacion';
 

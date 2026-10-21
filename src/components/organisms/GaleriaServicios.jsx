@@ -1,4 +1,4 @@
-import TarjetaServicio from "./TarjetaServicio"
+import TarjetaServicio from "../molecules/TarjetaServicio"
 
 function GaleriaServicios({ servicios }) {
   return (

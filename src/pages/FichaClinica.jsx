@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import Pagina from '../components/Pagina';
-import Seccion from '../components/Seccion';
-import FormularioFicha from '../components/FormularioFicha';
-import ListaFichas from '../components/ListaFichas';
-import ReporteFicha from '../components/ReporteFicha';
-import BotonCerrarSesion from '../components/BotonCerrarSesion';
+import Pagina from '../components/organisms/Pagina';
+import Seccion from '../components/molecules/Seccion';
+import FormularioFicha from '../components/organisms/FormularioFicha';
+import ListaFichas from '../components/molecules/ListaFichas';
+import ReporteFicha from '../components/molecules/ReporteFicha';
+import BotonCerrarSesion from '../components/atoms/BotonCerrarSesion';
 
 import { fichasIniciales } from '../data/fichas';
 import { itemsMenu } from '../data/navegacion';

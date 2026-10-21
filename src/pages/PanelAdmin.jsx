@@ -1,8 +1,8 @@
-import Pagina from '../components/Pagina';
-import Seccion from '../components/Seccion';
-import FormularioProducto from '../components/FormularioProducto';
-import ListaProductos from '../components/ListaProductos';
-import BotonCerrarSesion from '../components/BotonCerrarSesion';
+import Pagina from '../components/organisms/Pagina';
+import Seccion from '../components/molecules/Seccion';
+import FormularioProducto from '../components/organisms/FormularioProducto';
+import ListaProductos from '../components/molecules/ListaProductos';
+import BotonCerrarSesion from '../components/atoms/BotonCerrarSesion';
 
 import { itemsMenu } from '../data/navegacion';
 

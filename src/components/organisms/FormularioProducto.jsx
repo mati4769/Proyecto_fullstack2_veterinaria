@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 
-import Campo from './Campo'
-import CampoSelect from './CampoSelect'
+import Campo from '../atoms/Campo'
+import CampoSelect from '../atoms/CampoSelect'
 
-import { opcionesCategoria } from '../data/opciones'
-import { imgGenerica } from '../data/productos'
+import { opcionesCategoria } from '../../data/opciones'
+import { imgGenerica } from '../../data/productos'
 
 function FormularioProducto({ onAgregar }) {
   const [titulo, setTitulo] = useState("")
