@@ -4,6 +4,7 @@
 <br />
 
 **Integrantes:** Matías Acevedo
+                 Alexander Mejias
 <br />
 
 **Componentes / Módulos principales:** TarjetaProducto, FormularioRegistro, FormularioLogin, RutaPrivada, Productos, FormularioCita, FormularioProducto, Carrito.
