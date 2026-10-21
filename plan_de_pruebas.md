@@ -3,7 +3,7 @@
 **Proyecto:** Veterinaria San Marcos
 <br />
 
-**Integrantes:** Matías Acevedo y Alexander Mejias
+**Integrantes:** Matías Acevedo y Alexander Mejías
 <br />
 
 **Componentes / Módulos principales:** TarjetaProducto, FormularioRegistro, FormularioLogin, RutaPrivada, Productos, FormularioCita, FormularioProducto, Carrito.
