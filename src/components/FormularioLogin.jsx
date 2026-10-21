@@ -2,10 +2,10 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import { Link, useNavigate } from 'react-router-dom'
 
-import Campo from '../atoms/Campo'
+import Campo from './Campo'
 
-import { regexCorreo, mensajeCorreo, regexContra, mensajeContra } from '../../data/validaciones'
-import { usuarioAdmin } from '../../data/usuarios'
+import { regexCorreo, mensajeCorreo, regexContra, mensajeContra } from '../data/validaciones'
+import { usuarioAdmin } from '../data/usuarios'
 
 function FormularioLogin() {
   const navigate = useNavigate()

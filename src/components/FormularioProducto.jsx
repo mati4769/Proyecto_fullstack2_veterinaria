@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 
-import Campo from '../atoms/Campo'
-import CampoSelect from '../atoms/CampoSelect'
+import Campo from './Campo'
+import CampoSelect from './CampoSelect'
 
-import { opcionesCategoria } from '../../data/opciones'
-import { imgGenerica } from '../../data/productos'
+import { opcionesCategoria } from '../data/opciones'
+import { imgGenerica } from '../data/productos'
 
-function FormularioProducto({ onAgregar }) {
-  const [titulo, setTitulo] = useState("")
-  const [descripcion, setDescripcion] = useState("")
-  const [precio, setPrecio] = useState("")
-  const [categoria, setCategoria] = useState("")
+// si recibe un producto, el formulario sirve para modificarlo; si no, para agregar uno nuevo
+function FormularioProducto({ producto, onAgregar, onModificar, onCancelar }) {
+  const [titulo, setTitulo] = useState(producto ? producto.titulo : "")
+  const [descripcion, setDescripcion] = useState(producto ? producto.descripcion : "")
+  const [precio, setPrecio] = useState(producto ? producto.precio : "")
+  const [categoria, setCategoria] = useState(producto ? producto.categoria : "")
 
   const enviar = () => {
     // 1 nombre: obligatorio
@@ -38,6 +39,21 @@ function FormularioProducto({ onAgregar }) {
       return
     }
 
+    // modificar: se mantiene el id y la imagen del producto
+    if (producto) {
+      onModificar({
+        id: producto.id,
+        imagen: producto.imagen,
+        titulo: titulo,
+        descripcion: descripcion,
+        precio: Number(precio),
+        categoria: categoria
+      })
+      alert("Producto modificado")
+      return
+    }
+
+    // agregar: se usa la imagen generica
     const nuevoProducto = {
       imagen: imgGenerica,
       titulo: titulo,
@@ -67,8 +83,15 @@ function FormularioProducto({ onAgregar }) {
         opciones={opcionesCategoria} valor={categoria} onCambio={setCategoria} />
 
       <Button className="boton" type="button" onClick={enviar}>
-        Agregar producto
-      </Button>
+        {producto ? "Guardar cambios" : "Agregar producto"}
+      </Button>{" "}
+
+      {/* al editar se puede cancelar y volver a agregar */}
+      {producto && (
+        <Button className="boton" type="button" onClick={onCancelar}>
+          Cancelar
+        </Button>
+      )}
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 
-import Campo from '../atoms/Campo'
-import CampoSelect from '../atoms/CampoSelect'
+import Campo from './Campo'
+import CampoSelect from './CampoSelect'
 
-import { opcionesMotivo } from '../../data/opciones'
+import { opcionesMotivo } from '../data/opciones'
 
 function FormularioCita({ onAgregar }) {
   const [dueno, setDueno] = useState("")

@@ -1,9 +1,9 @@
-import Pagina from '../components/organisms/Pagina';
-import Seccion from '../components/molecules/Seccion';
-import DatosClinica from '../components/molecules/DatosClinica';
-import GaleriaEquipo from '../components/organisms/GaleriaEquipo';
-import GaleriaServicios from '../components/organisms/GaleriaServicios';
-import VideoCuidado from '../components/atoms/VideoCuidado';
+import Pagina from '../components/Pagina';
+import Seccion from '../components/Seccion';
+import DatosClinica from '../components/DatosClinica';
+import GaleriaEquipo from '../components/GaleriaEquipo';
+import GaleriaServicios from '../components/GaleriaServicios';
+import VideoCuidado from '../components/VideoCuidado';
 
 import { datosClinica, equipo, videoCuidado } from '../data/clinica';
 import { servicios } from '../data/servicios';

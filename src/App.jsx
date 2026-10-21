@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Home from './pages/Home'
-import Citas from './pages/Citas'
-import FichaClinica from './pages/FichaClinica'
-import Login from './pages/Login'
-import Registro from './pages/Registro'
-import Productos from './pages/Productos'
-import Producto from './pages/Producto'
-import PanelAdmin from './pages/PanelAdmin'
-import Carrito from './pages/Carrito'
-import MiPerfil from './pages/MiPerfil'
-import NoEncontrado from './pages/NoEncontrado'
+import Home from './views/Home'
+import Citas from './views/Citas'
+import FichaClinica from './views/FichaClinica'
+import Login from './views/Login'
+import Registro from './views/Registro'
+import Productos from './views/Productos'
+import Producto from './views/Producto'
+import PanelAdmin from './views/PanelAdmin'
+import Carrito from './views/Carrito'
+import MiPerfil from './views/MiPerfil'
+import NoEncontrado from './views/NoEncontrado'
 import RutaPrivada from './components/RutaPrivada'
 
 import { productosIniciales } from './data/productos'
@@ -21,10 +21,24 @@ function App() {
   const [productos, setProductos] = useState(productosIniciales)
   const [carrito, setCarrito] = useState([])
 
-  // panel admin
+  // panel admin: agregar, modificar y eliminar productos (CRUD en memoria)
   const agregarProducto = (nuevoProducto) => {
-    nuevoProducto.id = productos.length + 1
+    // el id nuevo es el id del ultimo producto + 1, asi no se repite aunque se eliminen productos
+    let nuevoId = 1
+    if (productos.length > 0) {
+      nuevoId = productos[productos.length - 1].id + 1
+    }
+    nuevoProducto.id = nuevoId
     setProductos(productos.concat(nuevoProducto))
+  }
+
+  const modificarProducto = (productoModificado) => {
+    // se reemplaza el producto que tiene el mismo id
+    setProductos(productos.map((producto) => producto.id === productoModificado.id ? productoModificado : producto))
+  }
+
+  const eliminarProducto = (id) => {
+    setProductos(productos.filter((producto) => producto.id !== id))
   }
 
   // carrito
@@ -62,7 +76,8 @@ function App() {
 
       <Route path='/admin' element={
         <RutaPrivada>
-          <PanelAdmin productos={productos} onAgregarProducto={agregarProducto} />
+          <PanelAdmin productos={productos} onAgregarProducto={agregarProducto}
+            onModificarProducto={modificarProducto} onEliminarProducto={eliminarProducto} />
         </RutaPrivada>
       } />
 

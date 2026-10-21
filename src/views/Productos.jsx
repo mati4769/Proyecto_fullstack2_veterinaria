@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import Pagina from '../components/organisms/Pagina';
-import Seccion from '../components/molecules/Seccion';
-import CampoSelect from '../components/atoms/CampoSelect';
-import GaleriaProductos from '../components/organisms/GaleriaProductos';
+import Pagina from '../components/Pagina';
+import Seccion from '../components/Seccion';
+import CampoSelect from '../components/CampoSelect';
+import GaleriaProductos from '../components/GaleriaProductos';
 
 import { opcionesCategoria } from '../data/opciones';
 import { itemsMenu } from '../data/navegacion';

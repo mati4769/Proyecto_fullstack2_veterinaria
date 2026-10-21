@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import Pagina from '../components/organisms/Pagina';
-import Seccion from '../components/molecules/Seccion';
+import Pagina from '../components/Pagina';
+import Seccion from '../components/Seccion';
 
 import { itemsMenu } from '../data/navegacion';
 

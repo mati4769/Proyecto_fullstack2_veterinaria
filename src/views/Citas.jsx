@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import Pagina from '../components/organisms/Pagina';
-import Seccion from '../components/molecules/Seccion';
-import FormularioCita from '../components/organisms/FormularioCita';
-import ListaCitas from '../components/molecules/ListaCitas';
+import Pagina from '../components/Pagina';
+import Seccion from '../components/Seccion';
+import FormularioCita from '../components/FormularioCita';
+import ListaCitas from '../components/ListaCitas';
 
 import { citasIniciales } from '../data/citas';
 import { itemsMenu } from '../data/navegacion';

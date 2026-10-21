@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 
-import Campo from '../atoms/Campo'
+import Campo from './Campo'
 
 function FormularioFicha({ onAgregar }) {
   const [mascota, setMascota] = useState("")

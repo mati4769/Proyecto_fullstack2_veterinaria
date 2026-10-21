@@ -3,11 +3,11 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
-import Campo from '../atoms/Campo'
-import CampoSelect from '../atoms/CampoSelect'
+import Campo from './Campo'
+import CampoSelect from './CampoSelect'
 
-import { opcionesServicio, opcionesEspecie } from '../../data/opciones'
-import { regexCorreo, mensajeCorreo, regexContra, mensajeContra, regexSoloLetras } from '../../data/validaciones'
+import { opcionesServicio, opcionesEspecie } from '../data/opciones'
+import { regexCorreo, mensajeCorreo, regexContra, mensajeContra, regexSoloLetras } from '../data/validaciones'
 
 function FormularioRegistro() {
   const [nombre, setNombre] = useState("")

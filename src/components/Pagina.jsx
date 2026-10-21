@@ -1,7 +1,7 @@
 import Header from './Header'
 import Footer from './Footer'
 
-import { clinica } from '../../data/clinica'
+import { clinica } from '../data/clinica'
 
 function Pagina({ itemsMenu, children }) {
   return (
