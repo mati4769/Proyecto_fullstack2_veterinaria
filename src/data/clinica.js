@@ -1,7 +1,7 @@
 import imgLogo from '../assets/img/logotipo.jpg';
-import imgDoctor1 from '../assets/img/fotodoctor1.jpg';
-import imgDoctor2 from '../assets/img/fotodoctor2.jpg';
-import imgDoctor3 from '../assets/img/fotodoctor3.jpg';
+import imgEquipo1 from '../assets/img/equipo1.jpg';
+import imgEquipo2 from '../assets/img/equipo2.jpg';
+import imgEquipo3 from '../assets/img/equipo3.jpg';
 import videoCuidado from '../assets/videos/alimentacion_saludable.mp4';
 
 //datos generales de la clinica (header y footer)
@@ -24,9 +24,9 @@ export const datosClinica = [
 
 //arreglo fotos del equipo
 export const equipo = [
-        { id: 1, imagen: imgDoctor1, alt: "Médico veterinario del equipo" },
-        { id: 2, imagen: imgDoctor2, alt: "Médica veterinaria del equipo" },
-        { id: 3, imagen: imgDoctor3, alt: "Consulta veterinaria" }
+        { id: 1, imagen: imgEquipo1, alt: "Médica veterinaria revisando a un perro" },
+        { id: 2, imagen: imgEquipo2, alt: "Equipo veterinario curando a un gato" },
+        { id: 3, imagen: imgEquipo3, alt: "Médico veterinario revisando a un perro" }
       ]
 
 export { videoCuidado }

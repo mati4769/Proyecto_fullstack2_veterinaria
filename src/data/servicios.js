@@ -1,7 +1,7 @@
 import imgPeso from '../assets/img/control_de_peso.jpg';
-import imgConsulta from '../assets/img/enfermedad_metabolica.jpg';
-import imgVacuna from '../assets/img/nutricion_deportiva.jpg';
-import imgDesparasitacion from '../assets/img/alimentacion_vegetariana.png';
+import imgConsulta from '../assets/img/consulta_general.jpg';
+import imgVacuna from '../assets/img/vacunacion.jpg';
+import imgDesparasitacion from '../assets/img/desparasitacion.jpg';
 
 //arreglo servicios
 export const servicios = [

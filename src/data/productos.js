@@ -1,7 +1,7 @@
 import imgPeso from '../assets/img/control_de_peso.jpg';
-import imgConsulta from '../assets/img/enfermedad_metabolica.jpg';
-import imgVacuna from '../assets/img/nutricion_deportiva.jpg';
-import imgDesparasitacion from '../assets/img/alimentacion_vegetariana.png';
+import imgConsulta from '../assets/img/consulta_general.jpg';
+import imgVacuna from '../assets/img/vacunacion.jpg';
+import imgDesparasitacion from '../assets/img/desparasitacion.jpg';
 import imgGenerica from '../assets/img/logotipo.jpg';
 
 //imagen por defecto para los productos nuevos del panel admin
